@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Toggle from './Toggle';
+import Contacts from './Contacts';
 import "./Home.css";
 
 export default class Profile extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             loading: true,
+            curr: 0,
             contacts: [],
-            search: '',
         }
     }
 
@@ -21,6 +21,10 @@ export default class Profile extends Component {
         console.log(data);
     }
   
+    updateCurr(num) {
+        this.setState({ curr: num });
+    }
+
     render() {
         if (this.state.loading) {
             return <div>Loading...</div>;
@@ -32,40 +36,15 @@ export default class Profile extends Component {
                     INFORMATION PANEL   
                 </div>
                 <div className="informationPanel">
-                    <div className="personal">
-                        <div> ID PERSON: {this.state.contacts[0].name.toUpperCase()} </div>
-                        <div className="image">
-                            <img className="profile-img" src="https://www.pinclipart.com/picdir/middle/40-401941_big-image-female-avatar-clipart.png" alt="Profile"></img>
-                        </div>  
-                    </div>
                     <div className="contactList">
-                        <div>
-                            {/*maps through entire array of students*/}
-                            {this.state.contacts.slice(1).map(contact => (
-                                <Toggle render = {({on, toggle}) => (
-                                <div key={contact.id} className="contact">
-                                    <div className="image">
-                                        <img className="profile-img" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Profile"></img>
-                                    </div>                               
-                                    <div className="information">
-                                        <div className="nested">
-                                            <div className="full-name">{contact.name.toUpperCase()}</div>
-                                            <div>
-                                                <button className="expand-btn" onClick={toggle}>
-                                                    {on && <div>HIDE</div>}
-                                                    {!on && <div>EXPAND</div>}
-                                                </button>
-                                            </div>                                           
-                                        </div>
-                                        <div className="subinfo">Email: {contact.email}</div>
-                                        <div className="subinfo">Phone: {contact.phone}</div>
-                                        <div className="subinfo">Username: {contact.username}</div>
-                                    </div>                               
-                                </div> 
-                                )} />       
-                            ))}
+                        <div className="personal">
+                            <div> ID PERSON: {this.state.contacts[this.state.curr].name.toUpperCase()} </div>
+                            <div className="image">
+                                <img className="profile-img" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Profile"></img>
+                            </div>  
                         </div>
                     </div>
+                    <Contacts contacts={this.state.contacts} triggerUpdate={this.updateCurr.bind(this)} />
                 </div>
             </div>
         );

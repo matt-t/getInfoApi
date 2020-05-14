@@ -1,0 +1,59 @@
+.contactList {
+    background-color: white;
+    border-radius: 1%;
+    height: 70vh;
+    overflow-y: hidden;
+    opacity: 95%;
+    margin-bottom: 3em;
+}
+
+.contactList:hover {
+    overflow-y: auto;
+}
+
+.contact {
+    display:grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+    border-bottom:lightgrey 1px solid;
+}
+
+.contact > div {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.nested {
+    display:grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.information > div {
+    text-align: left;
+}
+
+.full-name {
+    font-weight: 500;
+    font-size: medium;
+}
+
+.subinfo {
+    margin-left: 1em;
+    font-size: small;
+}
+
+.profile-img {
+    border-radius: 50%;
+    border:1px solid rgb(64, 173, 224);
+    max-width: 100%;
+    max-height: 70px;
+}  
+
+.expand-btn {
+    max-width: 75%;
+}
+
+.expand-btn:hover {
+    background-color: lightgrey;
+}
