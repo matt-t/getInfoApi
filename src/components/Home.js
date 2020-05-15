@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Contacts from './Contacts';
 import "./Home.css";
+import iconPhone from '../images/phone.png';
+import iconEmail from '../images/email.png';
+import iconAddress from '../images/address.png';
+
 
 export default class Profile extends Component {
 
@@ -36,11 +40,49 @@ export default class Profile extends Component {
                     INFORMATION PANEL   
                 </div>
                 <div className="informationPanel">
-                    <div className="contactList">
-                        <div className="personal">
-                            <div> ID PERSON: {this.state.contacts[this.state.curr].name.toUpperCase()} </div>
-                            <div className="image">
-                                <img className="profile-img" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Profile"></img>
+                    <div className="personal">
+                        <div className="header">
+                            <div className="pic">
+                                <img className="profile-pic" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Profile"></img>
+                            </div>
+                            <div>
+                                <div className="connect">
+                                    <div className="icon-text">
+                                        {this.state.contacts[this.state.curr].phone}   
+                                    </div>
+                                    <div>
+                                    <img className="icon" src={iconPhone} alt="icon"></img>
+                                    </div>
+                                    <div className="icon-text">
+                                        {this.state.contacts[this.state.curr].email}   
+                                    </div>
+                                    <div>
+                                    <img className="icon" src={iconEmail} alt="icon"></img>
+                                    </div>
+                                    <div className="icon-text">
+                                        {this.state.contacts[this.state.curr].address.street},&nbsp; {this.state.contacts[this.state.curr].address.city}   
+                                    </div>
+                                    <div>
+                                    <img className="icon" src={iconAddress} alt="icon"></img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="name">
+                            {this.state.contacts[this.state.curr].name}
+                        </div>
+                        <div className="temp2">
+                            <div>
+                            {this.state.contacts[this.state.curr].website}
+                            </div>
+                            <div>
+                            {this.state.contacts[this.state.curr].company.name}
+                            </div>    
+                            <div>
+                            {this.state.contacts[this.state.curr].company.catchPhrase}    
+                            </div>
+                            <div>
+                            {this.state.contacts[this.state.curr].company.bs}      
                             </div>  
                         </div>
                     </div>

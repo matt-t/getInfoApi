@@ -7,14 +7,14 @@ const Contacts = ({ contacts, triggerUpdate }) => {
             <div>
                 {contacts.map(contact => (
                      <div key={contact.id} className="contact">
-                        <div className="image">
+                        <div>
                             <img className="profile-img" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Profile"></img>
                         </div>                               
                         <div className="information">
                              <div className="nested">
                                 <div className="full-name">{contact.name.toUpperCase()}</div>
                                 <div>
-                                    <button className="expand-btn" onClick={()=>triggerUpdate(contact.id - 1)}>
+                                    <button className="btn" onClick={()=>triggerUpdate(contact.id - 1)}>
                                             SHOW
                                     </button>                                    
                                 </div>                                           

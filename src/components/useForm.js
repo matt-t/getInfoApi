@@ -23,7 +23,7 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  }, [errors]);
+  });
 
   return {
     handleChange,

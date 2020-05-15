@@ -26,7 +26,7 @@
 
 .nested {
     display:grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 5fr 1fr;
 }
 
 .information > div {
@@ -50,10 +50,10 @@
     max-height: 70px;
 }  
 
-.expand-btn {
+.btn {
     max-width: 75%;
 }
 
-.expand-btn:hover {
+.btn:hover {
     background-color: lightgrey;
 }
